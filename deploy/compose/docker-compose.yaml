@@ -9,10 +9,6 @@ services:
   rag-server:
     container_name: rag-server
     image: nvcr.io/nvidia/blueprint/rag-server:${TAG:-1.0.0}
-    build:
-      # Set context to repo's root directory
-      context: ../../
-      dockerfile: src/Dockerfile
     # start the server on port 8081 with 8 workers for improved latency on concurrent requests.
     command: --port 8081 --host 0.0.0.0 --workers 8
 
@@ -90,7 +86,6 @@ services:
     container_name: rag-playground
     image: nvcr.io/nvidia/blueprint/rag-playground:${TAG:-1.0.0}
     build:
-      # Set context to repo's root directory
       context: ../../
       dockerfile: ./frontend/Dockerfile
     command: --port 8090
