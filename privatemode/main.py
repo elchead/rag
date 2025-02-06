@@ -9,6 +9,7 @@
 #     "langchain-nvidia-ai-endpoints>=0.3.7",
 #     "python-dotenv>=1.0.0",
 #     "unstructured[pdf]",
+#     "requests>=2.31.0"
 # ]
 # ///
 
@@ -19,6 +20,8 @@ import logging
 import os
 from typing import List, Generator
 from dotenv import load_dotenv
+from langchain.schema.embeddings import Embeddings
+from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 from langchain_unstructured import UnstructuredLoader
 from langchain_community.vectorstores import Qdrant
@@ -28,9 +31,10 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough, RunnableAssign
 from qdrant_client import QdrantClient
 from qdrant_client.models import Distance, VectorParams
+import requests
 
-from langchain_nvidia_ai_endpoints import NVIDIAEmbeddings
 from langchain_nvidia_ai_endpoints import NVIDIARerank
+
 # Load environment variables
 load_dotenv()
 
@@ -38,9 +42,36 @@ load_dotenv()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Initialize global models
-document_embedder = NVIDIAEmbeddings(model="nvidia/llama-3.2-nv-embedqa-1b-v2", truncate="END")
+def get_text_splitter() -> RecursiveCharacterTextSplitter:
+    """Return the text splitter instance from langchain."""
+    return RecursiveCharacterTextSplitter(
+        chunk_size=1024,
+        chunk_overlap=200,
+    )
+
+class LocalEmbeddings(Embeddings):
+    """Local embedding client for text-embeddings-inference server"""
+    def __init__(self, base_url: str = "http://localhost:9090"):
+        self.base_url = base_url.rstrip("/")
+
+    def embed_documents(self, texts: List[str]) -> List[List[float]]:
+        """Get embeddings for a list of texts."""
+        response = requests.post(
+            f"{self.base_url}/embed",
+            json={"inputs": texts}
+        )
+        response.raise_for_status()
+        return response.json()
+
+    def embed_query(self, text: str) -> List[float]:
+        """Get embeddings for a single text."""
+        embeddings = self.embed_documents([text])
+        return embeddings[0]
+
+# Initialize global models and components
+document_embedder = LocalEmbeddings()
 ranker = NVIDIARerank(model="nvidia/llama-3.2-nv-rerankqa-1b-v2", top_n=4, truncate="END")
+text_splitter = get_text_splitter()
 vector_db_top_k = int(os.environ.get("VECTOR_DB_TOPK", 40))
 pm_api_key = os.environ.get("PM_API_KEY")
 
@@ -50,7 +81,11 @@ class QdrantRAG:
         self.client = QdrantClient(url="http://localhost:6333")
 
         # Initialize LLM
-        self.llm = ChatOpenAI(model_name="latest",base_url="http://localhost:8080/v1",api_key=pm_api_key)
+        self.llm = ChatOpenAI(
+            model_name="latest",
+            base_url="http://localhost:8080/v1",
+            api_key=pm_api_key
+        )
 
         # Initialize vector store
         self.collection_name = "documents"
@@ -95,8 +130,14 @@ class QdrantRAG:
             logger.info(f"Loading document from {file_path}")
             raw_documents = UnstructuredLoader(file_path,url="http://localhost:8000/general/v0/general",partition_via_api=True).load()
 
+            # Split documents
+            logger.info("Splitting documents with recursive character splitter")
+            split_docs = text_splitter.split_documents(raw_documents)
+            logger.info(f"Document splitting complete. Original: {len(raw_documents)}, "
+                       f"After splitting: {len(split_docs)}")
+
             # Add documents to vector store
-            self.vector_store.add_documents(raw_documents)
+            self.vector_store.add_documents(split_docs)
             logger.info(f"Successfully ingested document: {filename}")
 
         except Exception as e:

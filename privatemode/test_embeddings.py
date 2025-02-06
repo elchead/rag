@@ -2,46 +2,37 @@
 # requires-python = ">=3.8"
 # dependencies = [
 #     "langchain>=0.1.0",
+#     "langchain-community>=0.0.20",  # Updated to newer version
 #     "langchain-core>=0.1.0",
-#     "langchain-community>=0.0.10",
-#     "requests>=2.31.0",
+#     "requests>=2.31.0"  # Added for direct API calls
 # ]
 # ///
 
 import logging
 import requests
 from typing import List
-from langchain.schema.embeddings import Embeddings
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-class LocalHuggingFaceEmbeddings(Embeddings):
+class EmbeddingClient:
     def __init__(self, base_url: str = "http://localhost:9090"):
         self.base_url = base_url.rstrip("/")
 
-    def _embed(self, texts: List[str]) -> List[List[float]]:
-        """Embed a list of texts using the local HuggingFace model."""
+    def embed_query(self, text: str) -> List[float]:
+        """Get embeddings for a single text."""
         response = requests.post(
             f"{self.base_url}/embed",
-            json={"inputs": texts}
+            json={"inputs": [text]}
         )
         response.raise_for_status()
-        return response.json()
-
-    def embed_documents(self, texts: List[str]) -> List[List[float]]:
-        """Embed a list of documents."""
-        return self._embed(texts)
-
-    def embed_query(self, text: str) -> List[float]:
-        """Embed a query."""
-        embeddings = self._embed([text])
+        embeddings = response.json()
         return embeddings[0]
 
 def get_embedding():
     # Initialize the embedding model
-    embeddings = LocalHuggingFaceEmbeddings()
+    embeddings = EmbeddingClient()
 
     # Sample text to embed
     text = "This is a sample text to test embeddings."
