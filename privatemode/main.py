@@ -225,19 +225,67 @@ class QdrantRAG:
             logger.error(f"Failed to delete documents: {str(e)}")
             return False
 
-def main():
-    # Example usage
-    rag = QdrantRAG()
+def load_pdf_content(file_path: str) -> str:
+    """Load PDF content directly as a string."""
+    raw_documents = UnstructuredLoader(
+        file_path,
+        url="http://localhost:8000/general/v0/general",
+        partition_via_api=True
+    ).load()
+    return "\n".join([doc.page_content for doc in raw_documents])
 
-    # Ingest a document
-    print("INGESTING DOCUMENT")
-    rag.ingest_docs(os.path.join(os.path.dirname(__file__), "AI Foundation Models License.pdf"))
+def direct_query(llm: ChatOpenAI, content: str, query: str) -> Generator[str, None, None]:
+    """Execute direct query with full content in context."""
+    prompt = ChatPromptTemplate.from_template("""You are a helpful AI assistant. Use the following document to answer the question.
+    If you don't know the answer, just say you don't know.
+
+    Document: {content}
+
+    Question: {question}
+    """)
+
+    chain = prompt | llm | StrOutputParser()
+    return chain.stream({"content": content, "question": query})
+
+def main():
+    import time
+    rag = QdrantRAG()
+    pdf_path = os.path.join(os.path.dirname(__file__), "AI Foundation Models License.pdf")
+
+    # Ingest document for RAG
+    print("\nINGESTING DOCUMENT")
+    rag_start = time.time()
+    rag.ingest_docs(pdf_path)
     print("INGESTED DOCUMENT")
 
-    # Query the system
-    response = rag.rag_chain("Can I use the NVIDIA AI Foundation Models Community for commercial purposes?")
+    # Test query
+    query = "Can I use the NVIDIA AI Foundation Models Community for commercial purposes?"
+
+    # Time RAG approach
+    print("\n=== RAG Approach ===")
+    print("\nRAG Response:")
+    response = rag.rag_chain(query)
     for chunk in response:
         print(chunk, end="")
+    rag_time = time.time() - rag_start
+    print(f"\nRAG Time: {rag_time:.2f} seconds")
+
+    # Time direct context approach
+    print("\n\n=== Direct Context Approach ===")
+    direct_start = time.time()
+    print("\nDirect Response:")
+    full_content = load_pdf_content(pdf_path)
+    response = direct_query(rag.llm, full_content, query)
+    for chunk in response:
+        print(chunk, end="")
+    direct_time = time.time() - direct_start
+    print(f"\nDirect Context Time: {direct_time:.2f} seconds")
+
+    # Print comparison
+    print("\n\n=== Time Comparison ===")
+    print(f"RAG Time: {rag_time:.2f} seconds")
+    print(f"Direct Context Time: {direct_time:.2f} seconds")
+    print(f"Difference: {abs(rag_time - direct_time):.2f} seconds")
 
 if __name__ == "__main__":
     main()
