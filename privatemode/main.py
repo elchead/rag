@@ -22,7 +22,6 @@ from typing import List, Generator
 from dotenv import load_dotenv
 from langchain.schema.embeddings import Embeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-
 from langchain_unstructured import UnstructuredLoader
 from langchain_community.vectorstores import Qdrant
 from langchain_openai import ChatOpenAI
@@ -31,9 +30,9 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough, RunnableAssign
 from qdrant_client import QdrantClient
 from qdrant_client.models import Distance, VectorParams
-import requests
-
 from langchain_nvidia_ai_endpoints import NVIDIARerank
+import requests
+import time
 
 # Load environment variables
 load_dotenv()
@@ -91,22 +90,18 @@ class LocalEmbeddings(Embeddings):
 
 # Initialize global models and components
 document_embedder = LocalEmbeddings()
-ranker = NVIDIARerank(model="nvidia/llama-3.2-nv-rerankqa-1b-v2", top_n=4, truncate="END")
+#ranker = NVIDIARerank(model="nvidia/llama-3.2-nv-rerankqa-1b-v2", top_n=4, truncate="END") # not necessary
 text_splitter = get_text_splitter()
 vector_db_top_k = int(os.environ.get("VECTOR_DB_TOPK", 40))
 pm_api_key = os.environ.get("PM_API_KEY")
 
 class QdrantRAG:
-    def __init__(self):
+    def __init__(self,llm):
         # Initialize Qdrant client
         self.client = QdrantClient(url="http://localhost:6333")
 
         # Initialize LLM
-        self.llm = ChatOpenAI(
-            model_name="latest",
-            base_url="http://localhost:8080/v1",
-            api_key=pm_api_key
-        )
+        self.llm = llm
 
         # Initialize vector store
         self.collection_name = "documents"
@@ -248,22 +243,19 @@ def direct_query(llm: ChatOpenAI, content: str, query: str) -> Generator[str, No
     return chain.stream({"content": content, "question": query})
 
 def main():
-    import time
-    rag = QdrantRAG()
+    llm = ChatOpenAI(
+            model_name="latest",
+            base_url="http://localhost:8080/v1",
+            api_key=pm_api_key
+    )
     pdf_path = os.path.join(os.path.dirname(__file__), "AI Foundation Models License.pdf")
-
-    # Ingest document for RAG
-    print("\nINGESTING DOCUMENT")
-    rag_start = time.time()
-    rag.ingest_docs(pdf_path)
-    print("INGESTED DOCUMENT")
-
-    # Test query
     query = "Can I use the NVIDIA AI Foundation Models Community for commercial purposes?"
 
-    # Time RAG approach
+    # Ingest document for RAG
     print("\n=== RAG Approach ===")
-    print("\nRAG Response:")
+    rag_start = time.time()
+    rag = QdrantRAG(llm)
+    rag.ingest_docs(pdf_path)
     response = rag.rag_chain(query)
     for chunk in response:
         print(chunk, end="")
@@ -273,8 +265,8 @@ def main():
     # Time direct context approach
     print("\n\n=== Direct Context Approach ===")
     direct_start = time.time()
-    print("\nDirect Response:")
     full_content = load_pdf_content(pdf_path)
+    print("Loading time for PDF content: ", time.time() - direct_start)
     response = direct_query(rag.llm, full_content, query)
     for chunk in response:
         print(chunk, end="")
