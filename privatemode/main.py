@@ -51,11 +51,32 @@ def get_text_splitter() -> RecursiveCharacterTextSplitter:
 
 class LocalEmbeddings(Embeddings):
     """Local embedding client for text-embeddings-inference server"""
-    def __init__(self, base_url: str = "http://localhost:9090"):
+    def __init__(self, base_url: str = "http://localhost:9090", max_batch_size: int = 32):
         self.base_url = base_url.rstrip("/")
+        self.batch_size = max_batch_size
 
     def embed_documents(self, texts: List[str]) -> List[List[float]]:
         """Get embeddings for a list of texts."""
+        # Handle batching for large document sets
+        if len(texts) > self.batch_size:
+            logger.info(f"Batching {len(texts)} documents into chunks of {self.batch_size}")
+            all_embeddings = []
+
+            # Process in batches
+            for i in range(0, len(texts), self.batch_size):
+                batch = texts[i:i + self.batch_size]
+                logger.debug(f"Processing batch {i//self.batch_size + 1}, size: {len(batch)}")
+
+                response = requests.post(
+                    f"{self.base_url}/embed",
+                    json={"inputs": batch}
+                )
+                response.raise_for_status()
+                all_embeddings.extend(response.json())
+
+            return all_embeddings
+
+        # Handle single batch case
         response = requests.post(
             f"{self.base_url}/embed",
             json={"inputs": texts}
@@ -122,11 +143,10 @@ class QdrantRAG:
             embeddings=document_embedder
         )
 
-    def ingest_docs(self, data_dir: str, filename: str) -> None:
+    def ingest_docs(self, file_path: str) -> None:
         """Ingest documents into Qdrant vector store"""
         try:
             # Load documents
-            file_path = os.path.join(data_dir, filename)
             logger.info(f"Loading document from {file_path}")
             raw_documents = UnstructuredLoader(file_path,url="http://localhost:8000/general/v0/general",partition_via_api=True).load()
 
@@ -138,7 +158,7 @@ class QdrantRAG:
 
             # Add documents to vector store
             self.vector_store.add_documents(split_docs)
-            logger.info(f"Successfully ingested document: {filename}")
+            logger.info(f"Successfully ingested document: {file_path}")
 
         except Exception as e:
             logger.error(f"Failed to ingest document: {str(e)}")
@@ -211,7 +231,7 @@ def main():
 
     # Ingest a document
     print("INGESTING DOCUMENT")
-    rag.ingest_docs("/Users/adria/Downloads", "AI Foundation Models Community License.pdf")
+    rag.ingest_docs(os.path.join(os.path.dirname(__file__), "AI Foundation Models License.pdf"))
     print("INGESTED DOCUMENT")
 
     # Query the system

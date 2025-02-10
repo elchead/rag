@@ -16,6 +16,6 @@ docker run --platform linux/amd64 -p 9090:80 --pull always ghcr.io/huggingface/t
 docker run -p 8000:8000 -d --rm robwilkes/unstructured-api
 ```
 
-PM_API_KEY=<key> uv run qdrant.py
-
+```
+NVIDIA_API_KEY=<key> PM_API_KEY=<key> uv run main.py
 ```
