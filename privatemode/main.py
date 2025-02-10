@@ -200,13 +200,13 @@ def main():
     #base_url="http://localhost:9090/v1",
     #api_key="not-needed",
     #chunk_size=32
-    #) # the small embedding model is not good enough for the query, not even with reranker
+    #) # the small embedding model is not good enough for the query
     document_embedder = NVIDIAEmbeddings(model="nvidia/llama-3.2-nv-embedqa-1b-v2", truncate="END")
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=512,
         chunk_overlap=50)
-    #ranker = NVIDIARerank(model="nvidia/llama-3.2-nv-rerankqa-1b-v2", top_n=4, truncate="END") # not necessary
-    ranker = None
+    #ranker = None # without reranker, the results are not good enough for the query
+    ranker = NVIDIARerank(model="nvidia/llama-3.2-nv-rerankqa-1b-v2", top_n=4, truncate="END")
 
 
     # Ingest document for RAG
