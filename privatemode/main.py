@@ -31,6 +31,7 @@ from langchain_core.runnables import RunnablePassthrough, RunnableAssign
 from qdrant_client import QdrantClient
 from qdrant_client.models import Distance, VectorParams
 from langchain_nvidia_ai_endpoints import NVIDIARerank
+from langchain_nvidia_ai_endpoints import NVIDIAEmbeddings
 import time
 
 # Load environment variables
@@ -67,18 +68,17 @@ class QdrantRAG:
 
     def _init_collection(self):
         """Initialize Qdrant collection with proper configuration"""
-        try:
-            self.client.get_collection(self.collection_name)
-        except:
-            # Get embedding dimension from the model
-            embedding_size = len(self.document_embedder.embed_query("test"))
-            self.client.create_collection(
-                collection_name=self.collection_name,
-                vectors_config=VectorParams(
-                    size=embedding_size,
-                    distance=Distance.COSINE
-                ),
-            )
+        self.client.delete_collection(self.collection_name) # start from fresh collection every time
+        #self.client.get_collection(self.collection_name)
+        embedding_size = len(self.document_embedder.embed_query("test"))
+        logger.info(f"Embedding size: {embedding_size}")
+        self.client.create_collection(
+            collection_name=self.collection_name,
+            vectors_config=VectorParams(
+                size=embedding_size,
+                distance=Distance.COSINE
+            ),
+        )
 
         # Initialize Langchain's Qdrant wrapper
         self.vector_store = Qdrant(
@@ -196,11 +196,12 @@ def main():
             api_key=pm_api_key
     )
     loader = UnstructuredLoader(pdf_path,url="http://localhost:8000/general/v0/general",partition_via_api=True)
-    document_embedder = OpenAIEmbeddings(
-    base_url="http://localhost:9090/v1",
-    api_key="not-needed",
-    chunk_size=32
-    )
+    #document_embedder = OpenAIEmbeddings(
+    #base_url="http://localhost:9090/v1",
+    #api_key="not-needed",
+    #chunk_size=32
+    #) # the small embedding model is not good enough for the query, not even with reranker
+    document_embedder = NVIDIAEmbeddings(model="nvidia/llama-3.2-nv-embedqa-1b-v2", truncate="END")
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=512,
         chunk_overlap=50)
