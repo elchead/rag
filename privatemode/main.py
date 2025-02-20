@@ -44,10 +44,8 @@ vector_db_top_k = int(os.environ.get("VECTOR_DB_TOPK", 40))
 pm_api_key = os.environ.get("PM_API_KEY") or "bb79ba96-8a99-4faa-a673-3e029aba4100"
 
 class RAG:
-    def __init__(self,llm, loader, text_splitter, ranker, document_embedder):
-        # Initialize Qdrant client
-        self.client = QdrantClient(url="http://localhost:6333")
-
+    def __init__(self,vector_db, llm, loader, text_splitter, ranker, document_embedder):
+        self.client = vector_db
         self.llm = llm
         self.loader = loader
         self.text_splitter = text_splitter
@@ -189,7 +187,7 @@ def direct_query(llm: ChatOpenAI, content: str, query: str) -> Generator[str, No
 
 def main():
     pdf_path = os.path.join(os.path.dirname(__file__), "AI Foundation Models License.pdf")
-    query = "Can I use the NVIDIA AI Foundation Models Community for commercial purposes?"
+    query = "Under what conditions can NVIDIA AI Foundation Models be used for production without an NVIDIA AI Enterprise subscription?"
     llm = ChatOpenAI(
             model_name="latest",
             base_url="http://localhost:8080/v1",
@@ -212,7 +210,8 @@ def main():
 
     # Ingest document for RAG
     print("\n=== RAG Approach ===")
-    rag = RAG(llm, loader, text_splitter, ranker, document_embedder)
+    vector_db = QdrantClient(":memory:") #QdrantClient(url="http://localhost:6333")
+    rag = RAG(vector_db, llm, loader, text_splitter, ranker, document_embedder)
     rag_start = time.time()
     rag.ingest_docs(pdf_path)
     response = rag.rag_chain(query)
