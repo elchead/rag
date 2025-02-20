@@ -29,3 +29,5 @@ Lastly, you can run the script with an [uv](https://github.com/astral-sh/uv) ins
 ```
 NVIDIA_API_KEY=<key> PM_API_KEY=<key> uv run main.py
 ```
+
+Alternatively use the requirements.txt in the root to install the dependencies.

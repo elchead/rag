@@ -8,8 +8,8 @@
 #     "langchain-community>=0.3.7",
 #     "langchain-nvidia-ai-endpoints>=0.3.7",
 #     "python-dotenv>=1.0.0",
-#     "unstructured[pdf]",
-#     "requests>=2.31.0"
+#     "requests>=2.31.0",
+#     "unstructured-client==0.29.0"
 # ]
 # ///
 
@@ -41,9 +41,9 @@ load_dotenv()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 vector_db_top_k = int(os.environ.get("VECTOR_DB_TOPK", 40))
-pm_api_key = os.environ.get("PM_API_KEY")
+pm_api_key = os.environ.get("PM_API_KEY") or "bb79ba96-8a99-4faa-a673-3e029aba4100"
 
-class QdrantRAG:
+class RAG:
     def __init__(self,llm, loader, text_splitter, ranker, document_embedder):
         # Initialize Qdrant client
         self.client = QdrantClient(url="http://localhost:6333")
@@ -196,22 +196,23 @@ def main():
             api_key=pm_api_key
     )
     loader = UnstructuredLoader(pdf_path,url="http://localhost:8000/general/v0/general",partition_via_api=True)
-    #document_embedder = OpenAIEmbeddings(
-    #base_url="http://localhost:9090/v1",
-    #api_key="not-needed",
-    #chunk_size=32
-    #) # the small embedding model is not good enough for the query
-    document_embedder = NVIDIAEmbeddings(model="nvidia/llama-3.2-nv-embedqa-1b-v2", truncate="END")
+    print("Loaded loader","http://localhost:8000")
+    document_embedder = OpenAIEmbeddings(
+    base_url="http://localhost:9090/v1",
+    api_key="not-needed",
+    chunk_size=32
+    ) # the small embedding model is not good enough for the query
+    # document_embedder = NVIDIAEmbeddings(model="nvidia/llama-3.2-nv-embedqa-1b-v2", truncate="END")
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=512,
         chunk_overlap=50)
-    #ranker = None # without reranker, the results are not good enough for the query
-    ranker = NVIDIARerank(model="nvidia/llama-3.2-nv-rerankqa-1b-v2", top_n=4, truncate="END")
+    ranker = None # without reranker, the results are not good enough for the query
+    # ranker = NVIDIARerank(model="nvidia/llama-3.2-nv-rerankqa-1b-v2", top_n=4, truncate="END")
 
 
     # Ingest document for RAG
     print("\n=== RAG Approach ===")
-    rag = QdrantRAG(llm, loader, text_splitter, ranker, document_embedder)
+    rag = RAG(llm, loader, text_splitter, ranker, document_embedder)
     rag_start = time.time()
     rag.ingest_docs(pdf_path)
     response = rag.rag_chain(query)
