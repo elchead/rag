@@ -210,7 +210,7 @@ def main():
 
     # Ingest document for RAG
     print("\n=== RAG Approach ===")
-    vector_db = QdrantClient(":memory:") #QdrantClient(url="http://localhost:6333")
+    vector_db = QdrantClient(":memory:") #(path="./db") (for persistence)  # #QdrantClient(url="http://localhost:6333")
     rag = RAG(vector_db, llm, loader, text_splitter, ranker, document_embedder)
     rag_start = time.time()
     rag.ingest_docs(pdf_path)
