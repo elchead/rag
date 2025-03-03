@@ -32,6 +32,11 @@ NVIDIA_API_KEY=<key> PM_API_KEY=<key> uv run main.py
 
 Alternatively use the requirements.txt in the root to install the dependencies.
 
+## RAG evaluation
+
+```
+RAGAS_APP_TOKEN=<> RAGAS_APP_SECRET=<> ANTHROPIC_API_KEY=<> OPENAI_API_KEY=<> PM_API_KEY=<> uv run evaluate_rag.py
+```
 
 ## Kubernetes deployment
 
