@@ -1,0 +1,349 @@
+{
+  "model": "claude-3-7-sonnet-20250219",
+  "role": "assistant",
+  "type": "message",
+  "content_blocks": [
+    {
+      "index": 0,
+      "type": "text",
+      "text": "Question 1: What was the main purpose of the EMPATHiE project?\nAnswer: "
+    },
+    {
+      "index": 1,
+      "type": "text",
+      "text": "The overall purpose of the EMPATHiE project was to help understand the concept of patient empowerment - meaning a principle of patients making informed choices - as a prerequisite to the exercise of patient rights, with a focus on chronic diseases. The project had four specific objectives: to identify existing best practices in patient empowerment; to identify advantages of and barriers to empowering patients; to develop a method to validate transferability of good practices, considering the context of other chronic diseases, patient characteristics and specificities of health systems; and to develop scenarios of EU future collaboration on patient empowerment.",
+      "citations": [
+        {
+          "type": "page_location",
+          "cited_text": "In this context, the overall purpose of the current project is to help understand the concept of \r\npatient empowerment - meaning a principle of patients making informed choices - as a \r\nprerequisite to the exercise of patient rights and in this study, focused on chronic diseases. The \r\nspecific objectives of the tender are: \r\n· To identify existing best practices in patient empowerment \r\n· To identify advantages of and barriers to empowering patients \r\n· To develop a method to validate transferability of good practices, considering the context of \r\nother chronic diseases, patient characteristics and specificities of health systems \r\n· To develop scenarios of EU future collaboration on patient empowerment. \r\n",
+          "document_index": 0,
+          "document_title": "EU Document"
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "type": "text",
+      "text": "\n\nQuestion 2: How did the EMPATHiE project define an \"empowered patient\"?\nAnswer: "
+    },
+    {
+      "index": 3,
+      "type": "text",
+      "text": "According to the EMPATHiE project, \"an empowered patient has control over the management of their condition in daily life. They take action to improve the quality of their life and have the necessary knowledge, skills, attitudes and self-awareness to adjust their behaviour and to work in partnership with others where necessary, to achieve optimal well-being. Empowerment interventions aim to equip patients (and their informal caregivers whenever appropriate) with the capacity to participate in decisions related to their condition to the extent that they wish to do so; to become \"co-managers\" of their condition in partnership with health professionals; and to develop self-confidence, self-esteem and coping skills to manage the physical, emotional and social impacts of illness in everyday life.\"",
+      "citations": [
+        {
+          "type": "page_location",
+          "cited_text": "Project design \r\nAn empowered patient has control over the management of their condition in daily life. They \r\ntake action to improve the quality of their life and have the necessary knowledge, skills, \r\nattitudes and self-awareness to adjust their behaviour and to work in partnership with others \r\nwhere necessary, to achieve optimal well-being. \r\nEmpowerment interventions aim to equip patients (and their informal caregivers whenever \r\nappropriate) with the capacity to participate in decisions related to their condition to the \r\nextent that they wish to do so; to become “co-managers” of their condition in partnership \r\nwith health professionals; and to develop self-confidence, self-esteem and coping skills to \r\nmanage the physical, emotional and social impacts of illness in everyday life. ",
+          "document_index": 0,
+          "document_title": "EU Document"
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "type": "text",
+      "text": "\n\nQuestion 3: What types of promising strategies for patient empowerment were identified in the EMPATHiE project?\nAnswer: "
+    },
+    {
+      "index": 5,
+      "type": "text",
+      "text": "The EMPATHiE project identified four types of promising strategies for patient empowerment: 1) established effective practices (such as self-management support and patient education); 2) recent innovative practices (such as virtual interactive platforms and tele-monitoring through smart-phones); 3) shared decision making practices; and 4) systemic changes regarding the model of care (such as the chronic care model).",
+      "citations": [
+        {
+          "type": "page_location",
+          "cited_text": "The results of this project include: \r\n• A catalogue of best practices in PE, that has found four types of promising strategies: \r\nestablished effective practices (such self-management support and patient education); \r\nrecent innovative practices (such as virtual interactive platforms and tele-monitoring \r\nthrough smart-phones); shared decision making practices and systemic changes \r\nregarding the model of care (such as the chronic care model). \r\n",
+          "document_index": 0,
+          "document_title": "EU Document"
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "type": "text",
+      "text": " "
+    },
+    {
+      "index": 7,
+      "type": "text",
+      "text": "Within these strategies, some emerged as the most effective, particularly \"self-management support interventions across all conditions and different formats of patient education for diabetic patients.\" The analysis also found that \"recent innovative practices (such as virtual interactive platforms and tele-monitoring through smart-phones) present a positive tendency, mainly in diabetes and cardiovascular conditions.\" Additionally, \"systemic changes regarding the model of care (such as the chronic care model), seem to yield positive results.\"",
+      "citations": [
+        {
+          "type": "page_location",
+          "cited_text": "Within this general positive tendency some specific interventions emerge as the most effective: \r\nself-management support interventions across all conditions and different formats of patient \r\neducation for diabetic patients. It is also worth pointing out that recent innovative practices \r\n(such as virtual interactive platforms and tele-monitoring through smart-phones) present a \r\npositive tendency, mainly in diabetes and cardiovascular conditions. And finally, systemic \r\nchanges regarding the model of care (such as the chronic care model), seem to yield positive \r\nresults. ",
+          "document_index": 0,
+          "document_title": "EU Document"
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "type": "text",
+      "text": "\n\nQuestion 4: What key barriers and facilitators to patient empowerment were identified in the project?\nAnswer: "
+    },
+    {
+      "index": 9,
+      "type": "text",
+      "text": "The project analyzed barriers and facilitators to patient empowerment in EU Member States, finding that policy agenda should consider: \"focusing on better education of patients and public, improving education of healthcare professionals in holistic thinking and communication skills, specific restructuring of healthcare delivery and a central common electronic record accessible by patients and professionals.\"",
+      "citations": [
+        {
+          "type": "page_location",
+          "cited_text": "• An analysis of barriers and facilitators of PE in Member States, the results of which \r\nsuggest that policy agenda should consider: focusing on better education of patients and \r\npublic, improving education of healthcare professionals in holistic thinking and \r\ncommunication skills, specific restructuring of healthcare delivery and a central common \r\nelectronic record accessible by patients and professionals. \r\n",
+          "document_index": 0,
+          "document_title": "EU Document"
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "type": "text",
+      "text": " "
+    },
+    {
+      "index": 11,
+      "type": "text",
+      "text": "From focus groups conducted across member states, 952 important facilitators and barriers were identified and aggregated into 19 topics that were important for patient empowerment and could act as facilitators or barriers depending on their implementation. Globally, one-third of the mentioned topics were facilitators and two-thirds were barriers.",
+      "citations": [
+        {
+          "type": "page_location",
+          "cited_text": "From focus groups 952 important facilitators and barriers were identified and aggregated into \r\n19 topics that were felt to be important for patient empowerment and could act as facilitators \r\nand barriers depending of their implementation (see Table 2). Globally 1/3 of the mentioned \r\ntopics were facilitators and 2/3 barriers. ",
+          "document_index": 0,
+          "document_title": "EU Document"
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "type": "text",
+      "text": " "
+    },
+    {
+      "index": 13,
+      "type": "text",
+      "text": "The most frequently identified barrier related to attitudes – particularly those of health professionals but also political decision-makers. Divergences between European health systems and financial resources were also recognized as important barriers, often in the context of different capacity between different Member States. Funding was highly prioritized as a critical success factor: dedicated funding at national level was among the top 3 success factors for each scenario.",
+      "citations": [
+        {
+          "type": "page_location",
+          "cited_text": "24 \r\n\u0002 The most frequently identified barrier relates to attitudes – particularly those of health \r\nprofessionals but also political decision-makers. Divergences between European health \r\nsystems and financial resources are also recognised as important barriers, often in the \r\ncontext of different capacity between different Member States. In fact, funding was highly \r\nprioritised as a critical success factor: dedicated funding at national level was among the top \r\n3 success factors for each scenario \r\n\u0002 From the overall consultation process the four final scenarios were developed with \r\nconsideration of the effort needed to start collaborating, effectiveness in achieving patient \r\nempowerment, perceived costs, EU added value, benefits and perceived risks, barriers and \r\nsuccess factors. ",
+          "document_index": 0,
+          "document_title": "EU Document"
+        }
+      ]
+    },
+    {
+      "index": 14,
+      "type": "text",
+      "text": "\n\nQuestion 5: What were the five priority areas identified for improving patient empowerment in Europe?\nAnswer: "
+    },
+    {
+      "index": 15,
+      "type": "text",
+      "text": "Five clustered aspects were considered to have high priority for creating change in Europe: 1) The healthcare professional has enough time to communicate with the patient; 2) The healthcare professional has a holistic view of the patient; 3) Healthcare is well coordinated; 4) The patient feels responsible for his/her own health; and 5) Healthcare professionals work together. The survey results, though not randomly selected in the countries, allowed identification of consistent stakeholder priorities and the future developments needed to strengthen patient empowerment. European collaboration could focus on developing these five prioritized key aspects that arise from the survey, and on developing the selected scenarios. Suggested policy agenda areas at different levels include: focus on better education of patients and public, improved education of healthcare professionals in holistic thinking and communication, specific restructuring of healthcare delivery and a central common electronic record accessible by patients as well as professionals.",
+      "citations": [
+        {
+          "type": "page_location",
+          "cited_text": "There was no strong differentiation between facilitators and barriers of patient \r\nempowerment, since almost every aspect was described in both senses. \r\n\u0002 Five clustered aspects were considered to have high priority for creating change in Europe: \r\noThe healthcare professional has enough time to communicate with the patient \r\noThe healthcare professional has a holistic view of the patient \r\noHealthcare is well coordinated \r\noThe patient feels responsible for his/her own health \r\noHealthcare professionals work together \r\n\u0002 Recommendations: The survey, though not randomly selected in the countries, allowed \r\nidentification of consistent stakeholder priorities and the future developments needed to \r\nstrengthen patient empowerment. This study can be seen as building on and consistent with \r\nthe results of the Eurobarometer qualitative study on patient involvement of May 2012(5).\r\nEuropean collaboration could focus on developing the five prioritized key aspects that arise \r\nfrom the survey, and on developing the selected scenarios, below. Suggested policy agenda \r\nareas at different levels include: focus on better education of patients and public, \r\nimproved education of healthcare professionals in holistic thinking and communication,\r\nspecific restructuring of healthcare delivery and a central common electronic record \r\naccessible by patients as well as professionals. \r\n",
+          "document_index": 0,
+          "document_title": "EU Document"
+        }
+      ]
+    },
+    {
+      "index": 16,
+      "type": "text",
+      "text": "\n\nQuestion 6: What method did the project propose for validating transferability of good practices on patient empowerment?\nAnswer: "
+    },
+    {
+      "index": 17,
+      "type": "text",
+      "text": "For validating transferability of good practices on patient empowerment, the project recognized that \"from the literature review the difference between a 'practice' which represents long term performance of a group and an 'intervention' which is usually short-term (frequently studied through Randomized Controlled Trials) clearly emerged. The transferability method was foreseen to be focused on 'practices' though the aim of EU collaboration is to transfer establish consolidated practices and not just those interventions which are in the phase of implementation or evaluation. Also the importance of recognising disempowering practices was stressed as well as their likely impact in the patients' journey.\" Based on literature, the project suggested \"as a basis for the transferability method, the adoption of the Pettigrew model of change, where not only the content of a change is of importance but also the context and process. This model is based on the assumption that 'Context + Practice content + Implementation Process → Outcome'. The method also considers the importance of the transfer process and the context, practice content and implementation process at the new site.\"",
+      "citations": [
+        {
+          "type": "page_location",
+          "cited_text": "Main results: From the literature review the difference between a “practice “which represents \r\nlong term performance of a group and an “intervention” which is usually short-term (frequently \r\nstudied through Randomized Controlled Trials) clearly emerged. The transferability method was \r\nforeseen to be focused on “practices” though the aim of EU collaboration is to transfer establish \r\nconsolidated practices and not just those interventions which are in the phase of \r\nimplementation or evaluation. Also the importance of recognising disempowering practices was \r\nstressed as well as their likely impact in the patients’ journey. \r\n In the literature not much is written specifically about transferability of practices. However, \r\nrelated concepts of relevance have been studied extensively and an overview of this literature is \r\npresented in Chapter 3 of the WP report. These include the multifactorial nature of change \r\nprocesses proposed by Pettigrew (17) (see below) and further developed for health care change \r\nprocesses by Gröl (18), Robert and Fulop (19). The importance of the context was analysed (see for \r\nexample Bate (20)) as well as the literature on diffusion of innovation (Greenhalgh (21)) and the \r\nconcept of assimilation, which goes beyond implementation and adoption. The recent analysis \r\nof feasibility of patient engagement methods by Grande (22) was included. These different inputs \r\nwere put together to provide a basis for the suggested methodology to assess/validate the \r\ntransferability of good practices on patient empowerment (GPPEs). \r\nWe suggest, as a basis for the transferability method, the adoption of the Pettigrew model of \r\nchange (17), where not only the content of a change is of importance but also the context and \r\nprocess. This model is based on the assumption that “Context + Practice content + \r\nImplementation Process \u0001 Outcome”. The method also considers the importance of the \r\ntransfer process and the context, practice content and implementation process at the new site \r\n(Fig 2). ",
+          "document_index": 0,
+          "document_title": "EU Document"
+        }
+      ]
+    },
+    {
+      "index": 18,
+      "type": "text",
+      "text": " "
+    },
+    {
+      "index": 19,
+      "type": "text",
+      "text": "Based on these findings, \"an assessment matrix is proposed, that aims to support and validate transferability of best practices and describe and evaluate factors related to the earlier application as well as in the proposed new application. The method we present should not be seen as only an assessment or validation tool – rather, it should also be regarded as an improvement tool. It directs attention to factors hindering the transferability of a promising Practice for Patient Empowerment. Especially, it directs attention to those factors that are barriers but are potentially changeable.\"",
+      "citations": [
+        {
+          "type": "page_location",
+          "cited_text": "Based on the previously described findings an assessment matrix is proposed, that aims to \r\nsupport and validate transferability of best practices and describe and evaluate factors related \r\nto the earlier application as well as in the proposed new application. The method we present \r\nshould not be seen as only an assessment or validation tool – rather, it should also be regarded \r\nas an improvement tool. It directs attention to factors hindering the transferability of a \r\npromising Practice for Patient Empowerment. Especially, it directs attention to those factors \r\nthat are barriers but are potentially changeable. Improvement efforts should concentrate on \r\nthose underlying factors – how to improve the conditions for the transfer of Good Practices in \r\nPatient Empowerment. \r\n",
+          "document_index": 0,
+          "document_title": "EU Document"
+        }
+      ]
+    },
+    {
+      "index": 20,
+      "type": "text",
+      "text": "\n\nQuestion 7: What were the four future scenarios developed for EU collaboration on patient empowerment?\nAnswer: "
+    },
+    {
+      "index": 21,
+      "type": "text",
+      "text": "Four future scenarios were developed for EU collaboration on patient empowerment, briefly summarized as follows:\n\n\"Scenario 1: 'The informed patient' European collaboration focuses on ensuring that patients and citizens have easy access to information and health literacy covering all aspects of health, including prevention, treatment options, evidence-base for different treatments, and lifestyle advice.\n\nScenario 2: 'New professional skills, knowledge and attitudes', European collaboration focuses on ensuring that health professionals have the right skills, knowledge and attitudes to practice patient-centred healthcare, providing an enabling context for PE.\n\nScenario 3: 'Self-management supported by technology', eHealth solutions, such as telemedicine, electronic health records, remote monitoring, etc. become part of mainstream healthcare. European collaboration focuses on developing and implementing effective ICT resources and tools for patients and professionals to support PE through self-monitoring and self-management.\n\nScenario 4: 'Transparent quality data for patient choice', European collaboration focuses on facilitating patient choice through making available transparent and comparable information on quality of care.\"",
+      "citations": [
+        {
+          "type": "page_location",
+          "cited_text": "The scenarios are presented in a table format in the main WP report in the order they were \r\nprioritised by stakeholders. We very briefly summarize them below: \r\nScenario 1: “The informed patient” European collaboration focuses on ensuring that patients \r\nand citizens have easy access to information and health literacy covering all aspects of health, \r\nincluding prevention, treatment options, evidence-base for different treatments, and lifestyle \r\nadvice. \r\nScenario 2: “New professional skills, knowledge and attitudes”, European collaboration focuses \r\non ensuring that health professionals have the right skills, knowledge and attitudes to practice \r\npatient-centred healthcare, providing an enabling context for PE. 22 \r\nScenario 3: “Self-management supported by technology”, eHealth solutions, such as \r\ntelemedicine, electronic health records, remote monitoring, etc. become part of mainstream \r\nhealthcare. European collaboration focuses on developing and implementing effective ICT \r\nresources and tools for patients and professionals to support PE through self-monitoring and \r\nself-management. \r\nScenario 4: “Transparent quality data for patient choice”, European collaboration focuses on \r\nfacilitating patient choice through making available transparent and comparable information on \r\nquality of care \r\nAll of these scenarios are considered by stakeholders as useful for patient empowerment and as \r\nproviding EU added-value; all stakeholder groups expressed willingness to collaborate on each \r\nof the scenarios. ",
+          "document_index": 0,
+          "document_title": "EU Document"
+        }
+      ]
+    },
+    {
+      "index": 22,
+      "type": "text",
+      "text": "\n\nQuestion 8: How did stakeholders view EU-level collaboration on patient empowerment?\nAnswer: "
+    },
+    {
+      "index": 23,
+      "type": "text",
+      "text": "Stakeholders were largely positive about EU-level collaboration on patient empowerment. Most survey respondents (88.5%) considered promoting patient empowerment as either very or somewhat important, and the great majority (82.3%) were positive regarding the idea of collaboration at EU level. Regarding the scope of EU collaboration, \"EU-funded research was most frequently mentioned as an appropriate scope of EU collaboration (62.4%), closely followed by development of European level indicators and monitoring (56%). Voluntary collaboration driven by stakeholders was slightly more popular than collaboration driven by the European Commission. Legislative review was least popular as the scope of EU collaboration (mentioned by 20.8%).\"\n\nIn terms of concrete outputs, \"73% of respondents would like to see an EU strategy and action plan on patient empowerment. Most would also like to see a common repository of best practices and tools, comparable data at European level, a stronger scientific evidence base and common indicators to measure empowerment. Interestingly, a sustainable network of cooperation was also popular as an output of European collaboration. New EU legislation was mentioned by only 15.7% of respondents.\"",
+      "citations": [
+        {
+          "type": "page_location",
+          "cited_text": "20 \r\nsomewhat important and envisaged their role in supporting patient empowerment in terms of \r\nimproving care coordination, providing reliable, unbiased information, and providing education \r\nand training to health professionals. The great majority of respondents (82.3%) were also \r\npositive regarding the idea of collaboration at EU level. Percentage of stakeholders considering \r\neach type of objective ‘very or somewhat important ‘is shown below: \r\nEU-funded research was most frequently mentioned as an appropriate scope of EU collaboration \r\n(62.4%), closely followed by development of European level indicators and monitoring (56%). \r\nVoluntary collaboration driven by stakeholders was slightly more popular than collaboration \r\ndriven by the European Commission. Legislative review was least popular as the scope of EU \r\ncollaboration (mentioned by 20.8%). \r\nRegarding concrete outputs of a collaboration process, 73% of respondents would like to see an \r\nEU strategy and action plan on patient empowerment. Most would also like to see a common \r\nrepository of best practices and tools, comparable data at European level, a stronger scientific \r\nevidence base and common indicators to measure empowerment. Interestingly, a sustainable \r\nnetwork of cooperation was also popular as an output of European collaboration. New EU \r\nlegislation was mentioned by only 15.7% of respondents. Barriers to successful EU collaboration \r\ncould be seen in Figure 4. ",
+          "document_index": 0,
+          "document_title": "EU Document"
+        }
+      ]
+    },
+    {
+      "index": 24,
+      "type": "text",
+      "text": " "
+    },
+    {
+      "index": 25,
+      "type": "text",
+      "text": "This interest was further confirmed as \"this part of the study has confirmed that there is a strong interest by all the key stakeholders concerned, and a will to collaborate at European level on patient empowerment. Stakeholders' preference is for concrete actions, preferably linked to existing initiatives. It is respectfully suggested that the Commission consider the implications of this study, and the direction it signposts. The formulation of a European strategy and action plan on patient empowerment as a starting point is recommended, would be welcomed by a large majority of stakeholders. Actions taken towards the creation of a common repository of best practices and tools, the development of common indicators in order to achieve comparable data and an improved evidence base on PE, would also be welcomed by a majority of stakeholders.\"",
+      "citations": [
+        {
+          "type": "page_location",
+          "cited_text": "This part of the study has confirmed that there is a strong interest by all the key stakeholders \r\nconcerned, and a will to collaborate at European level on patient empowerment. \r\nStakeholders’ preference is for concrete actions, preferably linked to existing initiatives. It is \r\nrespectfully suggested that the Commission consider the implications of this study, and the \r\ndirection it signposts. The formulation of a European strategy and action plan on patient \r\nempowerment as a starting point is recommended, would be welcomed by a large majority of \r\nstakeholders. Actions taken towards the creation of a common repository of best practices and \r\ntools, the development of common indicators in order to achieve comparable data and an \r\nimproved evidence base on PE, would also be welcomed by a majority of stakeholders. Current \r\ninitiatives, such as the PaSQ JA, Chrodis JA and the European Innovation Platform on Active and \r\nHealthy Ageing provide opportunities for synergies and building on the work that is already \r\nunderway. ",
+          "document_index": 0,
+          "document_title": "EU Document"
+        }
+      ]
+    },
+    {
+      "index": 26,
+      "type": "text",
+      "text": "\n\nQuestion 9: What chronic disease types were the focus of the EMPATHiE project?\nAnswer: "
+    },
+    {
+      "index": 27,
+      "type": "text",
+      "text": "The EMPATHiE project focused on chronic care, covering the main groups of chronic diseases, specifically cardiovascular disease, respiratory diseases, diabetes and also mental health conditions, schizophrenia and chronic depression, acknowledging that these latter conditions are the second highest cause of disability in Europe.",
+      "citations": [
+        {
+          "type": "page_location",
+          "cited_text": "The project has not only analysed the problematic of patients with a single chronic condition, it \r\nhas also analysed the problematic and empowerment strategies related to patients with \r\nmultiple morbidities ,as this requires a different approach towards the organization of health \r\nsystems. The project has focused on chronic care, covering the main groups of chronic diseases, \r\nspecifically cardiovascular disease, respiratory diseases, diabetes and also mental health \r\nconditions, schizophrenia and chronic depression, acknowledging that these latter conditions \r\nare the second highest cause of disability in Europe. \r\n",
+          "document_index": 0,
+          "document_title": "EU Document"
+        }
+      ]
+    },
+    {
+      "index": 28,
+      "type": "text",
+      "text": " "
+    },
+    {
+      "index": 29,
+      "type": "text",
+      "text": "When reviewing the literature on interventions targeting patient empowerment, the project specifically targeted: \"Patients with chronic respiratory diseases (COPD or Asthma), Patients with chronic cardiovascular diseases, Patients with chronic diabetes (type 1 and 2), Patients with severe mental illness (schizophrenia or chronic depression).\"",
+      "citations": [
+        {
+          "type": "page_location",
+          "cited_text": "• Overview of the literature: a literature overview was carried out (review of systematic \r\nreviews, SR) on interventions addressed, primarily or secondary, towards patient \r\nempowerment between 2000 and 2013, (the search strategy is detailed in Deliverable 1). \r\nTarget population include: \r\no Patients with chronic respiratory diseases (COPD or Asthma) \r\no Patients with chronic cardiovascular diseases \r\no Patients with chronic diabetes (type 1 and 2) \r\no Patients with severe mental illness (schizophrenia or chronic depression) ",
+          "document_index": 0,
+          "document_title": "EU Document"
+        }
+      ]
+    },
+    {
+      "index": 30,
+      "type": "text",
+      "text": " "
+    },
+    {
+      "index": 31,
+      "type": "text",
+      "text": "The analysis revealed \"a predominance of interventions targeting diabetes, representing 28.7% of the selected SRs, followed at a distance by interventions targeting chronic respiratory conditions, representing 25.7% of the SRs, cardiovascular, 12.9%, mental health conditions, 10.9% and with those specifically focused on complex patients being the least represented in the SRs, just 1% (with a 20.8% of the SRs targeting a mix of chronic conditions).\"",
+      "citations": [
+        {
+          "type": "page_location",
+          "cited_text": "There appears \r\nto be a predominance of interventions targeting diabetes, representing 28.7% of the selected \r\nSRs, followed at a distance by interventions targeting chronic respiratory conditions, \r\nrepresenting 25.7% of the SRs, cardiovascular, 12.9%, mental health conditions, 10.9% and with \r\nthose specifically focused on complex patients being the least represented in the SRs, just 1% \r\n(with a 20.8% of the SRs targeting a mix of chronic conditions). \r\n",
+          "document_index": 0,
+          "document_title": "EU Document"
+        }
+      ]
+    },
+    {
+      "index": 32,
+      "type": "text",
+      "text": "\n\nQuestion 10: What recommendations did the project make for future actions on patient empowerment at the EU level?\nAnswer: "
+    },
+    {
+      "index": 33,
+      "type": "text",
+      "text": "Overall, regarding future actions of European collaboration on patient empowerment, the analysis of stakeholders' preferences suggested that \"the formulation of a European strategy and action plan would be welcomed. In addition some action towards the creation of a common repository of best practices and tools, the development of common indicators and an improved evidence base on PE would also be welcomed by a majority of stakeholders.\"",
+      "citations": [
+        {
+          "type": "page_location",
+          "cited_text": "Overall and regarding future actions of European collaboration on patient empowerment the \r\nanalysis of stakeholders’ preferences suggests that the formulation of a European strategy and \r\naction plan would be welcomed. In addition some action towards the creation of a common \r\nrepository of best practices and tools, the development of common indicators and an improved \r\nevidence base on PE would also be welcomed by a majority of stakeholders. ",
+          "document_index": 0,
+          "document_title": "EU Document"
+        }
+      ]
+    },
+    {
+      "index": 34,
+      "type": "text",
+      "text": " "
+    },
+    {
+      "index": 35,
+      "type": "text",
+      "text": "When considering the four scenarios developed by the project, it was noted that \"it is clear that no one scenario on its own will be capable of addressing all aspects of empowerment satisfactorily – due to the complexity of the concept and the many factors affecting PE. Therefore, multiple approaches will undoubtedly be needed. Stakeholder's preference is for concrete actions, preferably linked to existing initiatives, which should support and not undermine national initiatives. Patients' involvement is considered a 'sine qua non'.\"",
+      "citations": [
+        {
+          "type": "page_location",
+          "cited_text": "It is clear that no one scenario on its own will be capable of addressing all \r\naspects of empowerment satisfactorily – due to the complexity of the concept and the many \r\nfactors affecting PE. Therefore, multiple approaches will undoubtedly be needed. Stakeholder’s \r\npreference is for concrete actions, preferably linked to existing initiatives, which should support \r\nand not undermine national initiatives. Patients’ involvement is considered a “sine qua non”. \r\n",
+          "document_index": 0,
+          "document_title": "EU Document"
+        }
+      ]
+    },
+    {
+      "index": 36,
+      "type": "text",
+      "text": " "
+    },
+    {
+      "index": 37,
+      "type": "text",
+      "text": "The final report states: \"It is respectfully suggested that the Commission consider the implications of this study, and the direction it signposts. The formulation of a European strategy and action plan on patient empowerment as a starting point is recommended, would be welcomed by a large majority of stakeholders. Actions taken towards the creation of a common repository of best practices and tools, the development of common indicators in order to achieve comparable data and an improved evidence base on PE, would also be welcomed by a majority of stakeholders. Current initiatives, such as the PaSQ JA, Chrodis JA and the European Innovation Platform on Active and Healthy Ageing provide opportunities for synergies and building on the work that is already underway.\"",
+      "citations": [
+        {
+          "type": "page_location",
+          "cited_text": "This part of the study has confirmed that there is a strong interest by all the key stakeholders \r\nconcerned, and a will to collaborate at European level on patient empowerment. \r\nStakeholders’ preference is for concrete actions, preferably linked to existing initiatives. It is \r\nrespectfully suggested that the Commission consider the implications of this study, and the \r\ndirection it signposts. The formulation of a European strategy and action plan on patient \r\nempowerment as a starting point is recommended, would be welcomed by a large majority of \r\nstakeholders. Actions taken towards the creation of a common repository of best practices and \r\ntools, the development of common indicators in order to achieve comparable data and an \r\nimproved evidence base on PE, would also be welcomed by a majority of stakeholders. Current \r\ninitiatives, such as the PaSQ JA, Chrodis JA and the European Innovation Platform on Active and \r\nHealthy Ageing provide opportunities for synergies and building on the work that is already \r\nunderway. .",
+          "document_index": 0,
+          "document_title": "EU Document"
+        }
+      ]
+    }
+  ]
+}

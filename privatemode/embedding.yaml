@@ -23,14 +23,16 @@ command: ["text-embeddings-router"]
 config:
   # The name of the model to use. Can be a MODEL_ID as listed on <https://hf.co/models> like `thenlper/gte-base`.
   # If you mention MODEL_ID, environment variable would take precedence. 
-  modelID: jinaai/jina-embeddings-v2-base-de
+  modelID: Snowflake/snowflake-arctic-embed-m-v2.0 # #nomic-ai/nomic-embed-text-v1.5 #sentence-transformers/all-MiniLM-L6-v2 #all-MiniLM-L6-v2 # intfloat/e5-base-v2 #sentence-transformers/all-MiniLM-L6-v2 #jinaai/jina-embeddings-v2-base-de
 
-env: []
+env:
   # Reference: https://huggingface.co/docs/text-embeddings-inference/cli_arguments 
   # - name: MAX_CLIENT_BATCH_SIZE
   #   value: "32"
   # - name: RUST_BACKTRACE
   #   value: "full"
+  # - name: DEFAULT_PROMPT_NAME
+  #   value: "query"
 
 imagePullSecrets: []
 nameOverride: ""
